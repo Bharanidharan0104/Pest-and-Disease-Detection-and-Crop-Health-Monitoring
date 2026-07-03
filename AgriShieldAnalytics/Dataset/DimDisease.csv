@@ -1,0 +1,41 @@
+disease_id,disease_name,disease_severity,disease_risk_score
+DIS001,Blight,Low,1
+DIS002,Rust,Low,1
+DIS003,Smut,High,3
+DIS004,Powdery Mildew,Medium,2
+DIS005,Downy Mildew,Critical,4
+DIS006,Leaf Spot,Medium,2
+DIS007,Root Rot,Low,1
+DIS008,Mosaic Virus,Low,1
+DIS009,Wilt,High,3
+DIS010,Anthracnose,Critical,4
+DIS002,Rust,Critical,4
+DIS003,Smut,Medium,2
+DIS004,Powdery Mildew,Critical,4
+DIS005,Downy Mildew,Medium,2
+DIS006,Leaf Spot,Low,1
+DIS008,Mosaic Virus,High,3
+DIS009,Wilt,Medium,2
+DIS010,Anthracnose,Medium,2
+DIS001,Blight,Critical,4
+DIS002,Rust,High,3
+DIS004,Powdery Mildew,High,3
+DIS008,Mosaic Virus,Critical,4
+DIS009,Wilt,Critical,4
+DIS003,Smut,Low,1
+DIS005,Downy Mildew,Low,1
+DIS006,Leaf Spot,High,3
+DIS007,Root Rot,Critical,4
+DIS008,Mosaic Virus,Medium,2
+DIS009,Wilt,Low,1
+DIS010,Anthracnose,Low,1
+DIS001,Blight,Medium,2
+DIS002,Rust,Medium,2
+DIS004,Powdery Mildew,Low,1
+DIS007,Root Rot,High,3
+DIS001,Blight,High,3
+DIS003,Smut,Critical,4
+DIS005,Downy Mildew,High,3
+DIS006,Leaf Spot,Critical,4
+DIS010,Anthracnose,High,3
+DIS007,Root Rot,Medium,2

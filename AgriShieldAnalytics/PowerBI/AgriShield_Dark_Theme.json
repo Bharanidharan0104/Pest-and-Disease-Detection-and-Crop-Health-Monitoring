@@ -1,0 +1,177 @@
+{
+  "name": "AgriShield Analytics Theme",
+  "dataColors": [
+    "#38bdf8",
+    "#34d399",
+    "#818cf8",
+    "#fb923c",
+    "#f472b6",
+    "#a78bfa",
+    "#4ade80",
+    "#facc15",
+    "#f87171",
+    "#22d3ee",
+    "#e879f9",
+    "#60a5fa"
+  ],
+  "background": "#0f172a",
+  "foreground": "#f8fafc",
+  "tableAccent": "#38bdf8",
+
+  "visualStyles": {
+    "*": {
+      "*": {
+        "fontSize": [{"value": 11}],
+        "fontFamily": [{"value": "Segoe UI, Inter, sans-serif"}],
+        "color": [{"value": {"solid": {"color": "#f8fafc"}}}]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{"value": {"solid": {"color": "#0f172a"}}}],
+        "outspace": [{"value": {"solid": {"color": "#0f172a"}}}]
+      }
+    },
+    "card": {
+      "*": {
+        "background": [{"value": {"solid": {"color": "#1e293b"}}}],
+        "border": [{"value": {"solid": {"color": "#334155"}}}],
+        "borderRadius": [{"value": 12}],
+        "dataLabel": [{
+          "fontSize": [{"value": 28}],
+          "fontFamily": [{"value": "Segoe UI Semibold"}],
+          "color": [{"value": {"solid": {"color": "#38bdf8"}}}]
+        }],
+        "categoryLabel": [{
+          "fontSize": [{"value": 11}],
+          "color": [{"value": {"solid": {"color": "#94a3b8"}}}]
+        }]
+      }
+    },
+    "clusteredBarChart": {
+      "*": {
+        "dataPoint": [{
+          "defaultColor": [{"value": {"solid": {"color": "#38bdf8"}}}]
+        }],
+        "plotArea": [{"value": {"solid": {"color": "#1e293b"}}}],
+        "xAxis": [{
+          "gridlineColor": [{"value": {"solid": {"color": "#334155"}}}],
+          "tickColor": [{"value": {"solid": {"color": "#94a3b8"}}}]
+        }],
+        "yAxis": [{
+          "gridlineColor": [{"value": {"solid": {"color": "#334155"}}}],
+          "tickColor": [{"value": {"solid": {"color": "#94a3b8"}}}]
+        }]
+      }
+    },
+    "lineChart": {
+      "*": {
+        "lineStyles": [{
+          "strokeWidth": [{"value": 2.5}]
+        }],
+        "plotArea": [{"value": {"solid": {"color": "#1e293b"}}}]
+      }
+    },
+    "donutChart": {
+      "*": {
+        "plotArea": [{"value": {"solid": {"color": "#0f172a"}}}]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "header": [{
+          "fontColor": [{"value": {"solid": {"color": "#f8fafc"}}}],
+          "background": [{"value": {"solid": {"color": "#0f172a"}}}]
+        }],
+        "values": [{
+          "fontColor": [{"value": {"solid": {"color": "#e2e8f0"}}}],
+          "background": [{"value": {"solid": {"color": "#1e293b"}}}],
+          "alternatingBackground": [{"value": {"solid": {"color": "#172033"}}}]
+        }],
+        "grid": [{
+          "gridVertical": [{"value": false}],
+          "gridHorizontalColor": [{"value": {"solid": {"color": "#334155"}}}]
+        }]
+      }
+    },
+    "matrix": {
+      "*": {
+        "header": [{
+          "fontColor": [{"value": {"solid": {"color": "#f8fafc"}}}],
+          "background": [{"value": {"solid": {"color": "#0f172a"}}}]
+        }],
+        "values": [{
+          "fontColor": [{"value": {"solid": {"color": "#e2e8f0"}}}],
+          "background": [{"value": {"solid": {"color": "#1e293b"}}}]
+        }]
+      }
+    },
+    "slicer": {
+      "*": {
+        "header": [{
+          "fontColor": [{"value": {"solid": {"color": "#94a3b8"}}}],
+          "background": [{"value": {"solid": {"color": "#0f172a"}}}]
+        }],
+        "items": [{
+          "fontColor": [{"value": {"solid": {"color": "#e2e8f0"}}}],
+          "background": [{"value": {"solid": {"color": "#1e293b"}}}]
+        }]
+      }
+    },
+    "shape": {
+      "*": {
+        "fill": [{"value": {"solid": {"color": "#1e293b"}}}],
+        "border": [{"value": {"solid": {"color": "#334155"}}}]
+      }
+    },
+    "textbox": {
+      "*": {
+        "fontColor": [{"value": {"solid": {"color": "#f8fafc"}}}]
+      }
+    },
+    "kpiVisual": {
+      "*": {
+        "indicator": [{
+          "fontSize": [{"value": 26}],
+          "fontFamily": [{"value": "Segoe UI Semibold"}]
+        }]
+      }
+    }
+  },
+
+  "textClasses": {
+    "callout": {
+      "fontSize": 38,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#38bdf8"
+    },
+    "title": {
+      "fontSize": 16,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#f8fafc"
+    },
+    "header": {
+      "fontSize": 13,
+      "fontFace": "Segoe UI",
+      "color": "#94a3b8"
+    },
+    "label": {
+      "fontSize": 11,
+      "fontFace": "Segoe UI",
+      "color": "#cbd5e1"
+    }
+  },
+
+  "filterControls": [
+    {
+      "selector": {
+        "objectName": "background"
+      },
+      "properties": {
+        "color": {
+          "solid": {"color": "#1e293b"}
+        }
+      }
+    }
+  ]
+}

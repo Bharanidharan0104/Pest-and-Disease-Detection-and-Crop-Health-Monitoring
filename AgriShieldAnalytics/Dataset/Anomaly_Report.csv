@@ -1,0 +1,9 @@
+record_id,farmer_id,crop_name,location_name,monitoring_date,pesticide_l_ha,water_usage_l,crop_yield_tons_ha,health_score,rule_based_flag,rule_details,zscore_flag,zscore_max,iqr_flag,iqr_count,iso_flag,iso_score,fraud_score,fraud_level
+REC0016,F028,Sugarcane,Maharashtra,2023-04-06,74.78,1179.5,2.78,36.1,1,DuplicateRecord;,0,1.5117320710915156,0,0,0,0.0,3,High Risk
+REC0050,F018,Millet,Bihar,2024-04-15,8.69,1417.0,2.79,100.0,1,SuspiciousHealth;,0,1.7819479946690373,0,0,0,0.0,3,High Risk
+REC0190,F020,Millet,Bihar,2023-09-04,61.58,389.3,3.19,98.6,1,SuspiciousHealth;,0,1.7126653876159463,0,0,0,0.0,3,High Risk
+REC0204,F041,Soybean,Mp,2024-06-24,27.2,1045.3,7.79,98.8,1,SuspiciousHealth;,0,1.722562902909245,0,0,0,0.0,3,High Risk
+REC0434,F046,Soybean,Mp,2023-03-19,32.86,869.7,2.21,99.5,1,SuspiciousHealth;,0,1.7572042064357907,0,0,0,0.0,3,High Risk
+REC0460,F037,Millet,Bihar,2023-08-31,70.22,651.5,2.33,99.4,1,SuspiciousHealth;,0,1.7522554487891415,0,0,0,0.0,3,High Risk
+REC0468,F026,Tomato,Karnataka,2024-11-16,37.55,291.7,7.58,98.5,1,SuspiciousHealth;,0,1.7077166299692972,0,0,0,0.0,3,High Risk
+REC0016,F028,Sugarcane,Maharashtra,2023-04-06,74.78,1179.5,2.78,36.1,1,DuplicateRecord;,0,1.5117320710915156,0,0,0,0.0,3,High Risk

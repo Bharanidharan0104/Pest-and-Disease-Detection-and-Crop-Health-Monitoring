@@ -1,0 +1,41 @@
+pest_id,pest_name,pest_severity,pest_risk_score
+PST001,Aphids,High,3
+PST002,Whitefly,Medium,2
+PST003,Thrips,Critical,4
+PST004,Stem Borer,Critical,4
+PST005,Bollworm,Medium,2
+PST006,Locust,Critical,4
+PST007,Cutworm,Critical,4
+PST008,Mealybug,Medium,2
+PST009,Armyworm,Critical,4
+PST010,Leafhopper,Medium,2
+PST001,Aphids,Medium,2
+PST002,Whitefly,Critical,4
+PST003,Thrips,High,3
+PST004,Stem Borer,Medium,2
+PST006,Locust,High,3
+PST008,Mealybug,Low,1
+PST009,Armyworm,High,3
+PST010,Leafhopper,Low,1
+PST001,Aphids,Critical,4
+PST003,Thrips,Medium,2
+PST005,Bollworm,Critical,4
+PST008,Mealybug,Critical,4
+PST010,Leafhopper,Critical,4
+PST002,Whitefly,Low,1
+PST003,Thrips,Low,1
+PST005,Bollworm,High,3
+PST006,Locust,Low,1
+PST007,Cutworm,High,3
+PST004,Stem Borer,Low,1
+PST007,Cutworm,Low,1
+PST009,Armyworm,Medium,2
+PST001,Aphids,Low,1
+PST006,Locust,Medium,2
+PST007,Cutworm,Medium,2
+PST009,Armyworm,Low,1
+PST010,Leafhopper,High,3
+PST004,Stem Borer,High,3
+PST005,Bollworm,Low,1
+PST008,Mealybug,High,3
+PST002,Whitefly,High,3

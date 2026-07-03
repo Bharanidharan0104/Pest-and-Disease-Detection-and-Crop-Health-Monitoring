@@ -1,0 +1,6 @@
+Segment,Count,Avg_Recency,Avg_Frequency,Avg_Monetary,Avg_RFM_Score,Pct
+At Risk,11,103.0,13.45,64.28,3.0,22.0
+Champions,9,13.89,16.56,77.92,4.82,18.0
+Lost Farmers,9,104.33,8.56,42.88,1.59,18.0
+Loyal Farmers,10,36.6,12.9,58.62,3.47,20.0
+Potential Farmers,11,35.0,8.91,40.78,2.24,22.0

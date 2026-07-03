@@ -1,0 +1,182 @@
+// =============================================================================
+// AgriShield Analytics – DAX Measures
+// Power BI Calculated Measures for All Days
+// =============================================================================
+
+// ─── KPI MEASURES ─────────────────────────────────────────────────────────────
+
+[Total Crop Records] =
+    COUNTROWS(FactCropHealth)
+
+[Total Farmers] =
+    DISTINCTCOUNT(FactCropHealth[farmer_id])
+
+[Total Crop Yield (tons)] =
+    SUM(FactCropHealth[crop_yield_tons_ha])
+
+[Average Crop Yield] =
+    AVERAGE(FactCropHealth[crop_yield_tons_ha])
+
+[Total Revenue (INR)] =
+    SUM(FactCropHealth[total_revenue])
+
+[Average Health Score] =
+    AVERAGE(FactCropHealth[health_score])
+
+[Average NDVI Index] =
+    AVERAGE(FactCropHealth[ndvi_index])
+
+[Total Farm Area (ha)] =
+    SUM(FactCropHealth[farm_area_ha])
+
+[Average Combined Risk] =
+    AVERAGE(FactCropHealth[combined_risk])
+
+[High Risk Records] =
+    CALCULATE(
+        COUNTROWS(FactCropHealth),
+        FactCropHealth[combined_risk] >= 6
+    )
+
+[High Risk %] =
+    DIVIDE([High Risk Records], [Total Crop Records], 0) * 100
+
+// ─── YIELD MEASURES ────────────────────────────────────────────────────────────
+
+[Yield YoY Growth %] =
+VAR CurrYear = MAX(DimDate[year])
+VAR CurrYield = CALCULATE([Total Crop Yield (tons)], DimDate[year] = CurrYear)
+VAR PrevYield = CALCULATE([Total Crop Yield (tons)], DimDate[year] = CurrYear - 1)
+RETURN
+    IF(ISBLANK(PrevYield), BLANK(), DIVIDE(CurrYield - PrevYield, PrevYield) * 100)
+
+[Yield Target Achievement %] =
+    DIVIDE([Average Crop Yield], 6.0, 0) * 100  // Target: 6.0 tons/ha
+
+[Yield vs. Average] =
+    [Average Crop Yield] - CALCULATE([Average Crop Yield], ALL(DimCrop))
+
+// ─── HEALTH MEASURES ──────────────────────────────────────────────────────────
+
+[Healthy Crops %] =
+    DIVIDE(
+        CALCULATE(COUNTROWS(FactCropHealth), FactCropHealth[health_score] >= 70),
+        [Total Crop Records],
+        0
+    ) * 100
+
+[Poor Health Crops] =
+    CALCULATE(COUNTROWS(FactCropHealth), FactCropHealth[health_score] < 40)
+
+[Health Score Std Dev] =
+    STDEV.P(FactCropHealth[health_score])
+
+// ─── PEST & DISEASE MEASURES ─────────────────────────────────────────────────
+
+[Critical Pest Records] =
+    CALCULATE(
+        COUNTROWS(FactCropHealth),
+        DimPest[pest_severity] = "Critical"
+    )
+
+[Critical Disease Records] =
+    CALCULATE(
+        COUNTROWS(FactCropHealth),
+        DimDisease[disease_severity] = "Critical"
+    )
+
+[Avg Pest Risk Score] =
+    AVERAGE(DimPest[pest_risk_score])
+
+[Avg Disease Risk Score] =
+    AVERAGE(DimDisease[disease_risk_score])
+
+// ─── FINANCIAL MEASURES ───────────────────────────────────────────────────────
+
+[Revenue per Hectare] =
+    DIVIDE([Total Revenue (INR)], [Total Farm Area (ha)], 0)
+
+[Revenue per Farmer] =
+    DIVIDE([Total Revenue (INR)], [Total Farmers], 0)
+
+[Revenue MTD] =
+    TOTALMTD([Total Revenue (INR)], DimDate[monitoring_date])
+
+[Revenue QTD] =
+    TOTALQTD([Total Revenue (INR)], DimDate[monitoring_date])
+
+[Revenue YTD] =
+    TOTALYTD([Total Revenue (INR)], DimDate[monitoring_date])
+
+// ─── ENVIRONMENTAL MEASURES ───────────────────────────────────────────────────
+
+[Avg Water Efficiency] =
+    AVERAGE(FactCropHealth[water_efficiency])
+
+[Avg Fertilizer Usage] =
+    AVERAGE(FactCropHealth[fertilizer_kg_ha])
+
+[Avg Pesticide Usage] =
+    AVERAGE(FactCropHealth[pesticide_l_ha])
+
+[High NDVI Crops] =
+    CALCULATE(COUNTROWS(FactCropHealth), FactCropHealth[ndvi_index] >= 0.6)
+
+// ─── RFM MEASURES ─────────────────────────────────────────────────────────────
+// (To be used with RFM table loaded from RFM_Analysis.csv)
+
+[Champions Count] =
+    CALCULATE(COUNTROWS(RFM_Analysis), RFM_Analysis[Segment] = "Champions")
+
+[Loyal Farmers Count] =
+    CALCULATE(COUNTROWS(RFM_Analysis), RFM_Analysis[Segment] = "Loyal Farmers")
+
+[Potential Farmers Count] =
+    CALCULATE(COUNTROWS(RFM_Analysis), RFM_Analysis[Segment] = "Potential Farmers")
+
+[At Risk Farmers Count] =
+    CALCULATE(COUNTROWS(RFM_Analysis), RFM_Analysis[Segment] = "At Risk")
+
+[Lost Farmers Count] =
+    CALCULATE(COUNTROWS(RFM_Analysis), RFM_Analysis[Segment] = "Lost Farmers")
+
+[Avg RFM Score] =
+    AVERAGE(RFM_Analysis[RFM_Average])
+
+[Champions Yield] =
+    CALCULATE(
+        SUM(RFM_Analysis[Monetary]),
+        RFM_Analysis[Segment] = "Champions"
+    )
+
+// ─── TIME INTELLIGENCE ────────────────────────────────────────────────────────
+
+[Records Last 30 Days] =
+    CALCULATE(
+        [Total Crop Records],
+        DATESINPERIOD(DimDate[monitoring_date], LASTDATE(DimDate[monitoring_date]), -30, DAY)
+    )
+
+[Records Last 90 Days] =
+    CALCULATE(
+        [Total Crop Records],
+        DATESINPERIOD(DimDate[monitoring_date], LASTDATE(DimDate[monitoring_date]), -90, DAY)
+    )
+
+[Rolling 3M Avg Yield] =
+    CALCULATE(
+        [Average Crop Yield],
+        DATESINPERIOD(DimDate[monitoring_date], LASTDATE(DimDate[monitoring_date]), -3, MONTH)
+    )
+
+// ─── DYNAMIC TITLES ───────────────────────────────────────────────────────────
+
+[Selected Crop Title] =
+    IF(
+        ISFILTERED(DimCrop[crop_name]),
+        "Crop: " & SELECTEDVALUE(DimCrop[crop_name], "Multiple"),
+        "All Crops"
+    )
+
+[Dashboard Subtitle] =
+    "AgriShield Analytics | Data as of " & FORMAT(TODAY(), "MMM DD, YYYY")
